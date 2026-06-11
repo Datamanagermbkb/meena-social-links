@@ -22,7 +22,6 @@ body{
     min-height:100svh;
     overflow:hidden;
     position:relative;
-
     display:grid;
     place-items:center;
 }
@@ -50,12 +49,10 @@ body::before{
 /* CENTER CONTENT */
 .container{
     width:min(90vw,420px);
-
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-
     text-align:center;
 }
 
@@ -64,6 +61,7 @@ body::before{
     width:min(160px,40vw);
     height:auto;
     margin-bottom:10px;
+    border-radius:12px;
 }
 
 /* HEADING */
@@ -77,7 +75,6 @@ h1{
 /* BUTTONS */
 .social-links{
     width:100%;
-
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -87,21 +84,16 @@ h1{
 .social-links a{
     text-decoration:none;
     color:white;
-
     width:100%;
     max-width:270px;
-
     padding:14px 20px;
     border-radius:14px;
-
     display:flex;
     align-items:center;
     justify-content:center;
     gap:10px;
-
     font-size:17px;
     font-weight:600;
-
     transition:all .3s ease;
 }
 
@@ -115,7 +107,7 @@ h1{
     background:#128C7E;
 }
 
-.Website{
+.website{
     background:#ff3399;
 }
 
@@ -134,7 +126,6 @@ h1{
 /* HOVER */
 .social-links a:hover{
     transform:scale(1.05);
-
     box-shadow:
     0 0 10px #ffee02,
     0 0 20px #ff2727,
@@ -142,7 +133,7 @@ h1{
     0 0 40px currentColor;
 }
 
-/* SMALL PHONES */
+/* MOBILE */
 @media(max-width:380px){
 
     .social-links a{
@@ -162,7 +153,7 @@ h1{
 
 <!-- VIDEO BACKGROUND -->
 <video autoplay muted loop playsinline id="bg-video">
-    <source src="https://raw.githubusercontent.com/Datamanagermbkb/embvideo/refs/heads/main/Sequence%2001_1.mp4" type="video/mp4">
+    <source src="https://raw.githubusercontent.com/Datamanagermbkb/embvideo/main/Sequence%2001_1.mp4" type="video/mp4">
 </video>
 
 <div class="container">
@@ -179,35 +170,35 @@ h1{
         <a href="https://api.whatsapp.com/send?phone=917303888641&text=Hi+I+have+a+query.+Can+you+help%3F"
            class="whatsapp-customer"
            target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="">
             WhatsApp - Customer Care
         </a>
 
         <a href="https://meenabazaar.com/"
-           class="Website"
+           class="website"
            target="_blank">
-            <img src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg">
+            <img src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg" alt="">
             Website
         </a>
 
         <a href="https://www.instagram.com/meenabazaar/"
            class="instagram"
            target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="">
             Instagram
         </a>
 
         <a href="https://www.youtube.com/channel/UCxuqspu5N8CZThWFc8xa9ig"
            class="youtube"
            target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="">
             YouTube
         </a>
 
         <a href="https://www.facebook.com/MeenaBazaar/"
            class="facebook"
            target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png">
+            <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="">
             Facebook
         </a>
 
