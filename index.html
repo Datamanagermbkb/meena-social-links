@@ -6,7 +6,6 @@
 <title>Meena Bazaar Social Links</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -15,14 +14,17 @@
 
 html,body{
     width:100%;
-    height:100%;
+    min-height:100%;
 }
 
 body{
     font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
-    min-height:100dvh;
+    min-height:100svh;
     overflow:hidden;
     position:relative;
+
+    display:grid;
+    place-items:center;
 }
 
 /* VIDEO BACKGROUND */
@@ -47,63 +49,60 @@ body::before{
 
 /* CENTER CONTENT */
 .container{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    
-    width:100%;
-    max-width:420px;
+    width:min(90vw,420px);
 
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
+
     text-align:center;
-
-    padding:15px;
 }
 
+/* LOGO */
 .logo{
-    width:160px;
+    width:min(160px,40vw);
     height:auto;
-    margin-bottom:12px;
+    margin-bottom:10px;
 }
 
+/* HEADING */
 h1{
     color:#fff;
-    font-size:28px;
-    font-weight:700;
-    margin-bottom:22px;
+    font-size:clamp(24px,5vw,34px);
+    margin-bottom:20px;
     text-shadow:0 2px 5px rgba(0,0,0,.4);
 }
 
-/* LINKS */
+/* BUTTONS */
 .social-links{
+    width:100%;
+
     display:flex;
     flex-direction:column;
     align-items:center;
     gap:14px;
-    width:100%;
 }
 
 .social-links a{
     text-decoration:none;
     color:white;
+
+    width:100%;
+    max-width:270px;
+
     padding:14px 20px;
     border-radius:14px;
-
-    width:240px;
 
     display:flex;
     align-items:center;
     justify-content:center;
     gap:10px;
 
-    font-size:18px;
+    font-size:17px;
     font-weight:600;
 
-    transition:.3s ease;
+    transition:all .3s ease;
 }
 
 .social-links a img{
@@ -111,7 +110,7 @@ h1{
     height:24px;
 }
 
-/* BUTTON COLORS */
+/* COLORS */
 .whatsapp-customer{
     background:#128C7E;
 }
@@ -135,42 +134,27 @@ h1{
 /* HOVER */
 .social-links a:hover{
     transform:scale(1.05);
+
     box-shadow:
-      0 0 10px #ffee02,
-      0 0 20px #ff2727,
-      0 0 30px #0effcb,
-      0 0 40px currentColor;
+    0 0 10px #ffee02,
+    0 0 20px #ff2727,
+    0 0 30px #0effcb,
+    0 0 40px currentColor;
 }
 
-/* MOBILE */
-@media (max-width:480px){
+/* SMALL PHONES */
+@media(max-width:380px){
 
-    .container{
-        width:100%;
-        max-width:100%;
-        padding:12px;
+    .social-links a{
+        max-width:240px;
+        font-size:16px;
+        padding:12px 16px;
     }
 
     .logo{
-        width:140px;
-    }
-
-    h1{
-        font-size:24px;
-        margin-bottom:18px;
-    }
-
-    .social-links{
-        gap:12px;
-    }
-
-    .social-links a{
-        width:260px;
-        padding:13px 18px;
-        font-size:17px;
+        width:130px;
     }
 }
-
 </style>
 </head>
 
@@ -183,9 +167,10 @@ h1{
 
 <div class="container">
 
-    <img src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg"
-         alt="Meena Bazaar Logo"
-         class="logo">
+    <img
+      src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg"
+      alt="Meena Bazaar Logo"
+      class="logo">
 
     <h1>Connect with Meena Bazaar</h1>
 
