@@ -81,7 +81,8 @@ h1{
     gap:14px;
 }
 
-.social-links a{
+.social-links a,
+.social-links .location-card{
     text-decoration:none;
     color:white;
     width:100%;
@@ -97,12 +98,34 @@ h1{
     transition:all .3s ease;
 }
 
-.social-links a img{
+.social-links a img,
+.social-links .location-card img{
     width:24px;
     height:24px;
+    flex-shrink:0;
+}
+
+/* LOCATION CARD TEXT */
+.location-card{
+    text-align:left;
+    line-height:1.35;
+    font-size:14.5px;
+    font-weight:500;
+    cursor:default;
+}
+
+.location-card strong{
+    display:block;
+    font-size:16px;
+    font-weight:700;
+    margin-bottom:2px;
 }
 
 /* COLORS */
+.head-office{
+    background:#8a6d1a;
+}
+
 .whatsapp-customer{
     background:#128C7E;
 }
@@ -119,10 +142,6 @@ h1{
     background:#FF0000;
 }
 
-.facebook{
-    background:#3b5998;
-}
-
 /* HOVER */
 .social-links a:hover{
     transform:scale(1.05);
@@ -136,10 +155,15 @@ h1{
 /* MOBILE */
 @media(max-width:380px){
 
-    .social-links a{
+    .social-links a,
+    .social-links .location-card{
         max-width:240px;
         font-size:16px;
         padding:12px 16px;
+    }
+
+    .location-card{
+        font-size:13.5px;
     }
 
     .logo{
@@ -167,11 +191,14 @@ h1{
 
     <div class="social-links">
 
-        <a href="https://api.whatsapp.com/send?phone=917303888641&text=Hi+I+have+a+query.+Can+you+help%3F"
-           class="whatsapp-customer"
+        <a href="https://maps.app.goo.gl/JViLEceJpPUNypLZ7"
+           class="location-card head-office"
            target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="">
-            WhatsApp - Customer Care
+            <img src="https://img.icons8.com/?size=256w&id=YFY0zG9WOavq&format=png" alt="">
+            <span>
+                <strong>PLEASE VISIT US AT OUR NEW FLAGSHIP STORE &amp; CORPORATE HEAD OFFICE </strong>
+                Moulsari Avenue
+            </span>
         </a>
 
         <a href="https://meenabazaar.com/"
@@ -195,11 +222,11 @@ h1{
             YouTube
         </a>
 
-        <a href="https://www.facebook.com/MeenaBazaar/"
-           class="facebook"
+        <a href="https://api.whatsapp.com/send?phone=917303888641&text=Hi+I+have+a+query.+Can+you+help%3F"
+           class="whatsapp-customer"
            target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="">
-            Facebook
+            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="">
+            WhatsApp - Customer Care
         </a>
 
     </div>
