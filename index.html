@@ -1,237 +1,1522 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
 <title>Meena Bazaar Social Links</title>
 
+
 <style>
+
+/* =========================================
+   RESET
+========================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
+
+/* =========================================
+   HTML & BODY
+========================================= */
+
+html,
+body{
     width:100%;
     min-height:100%;
 }
 
+
 body{
-    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+
+    font-family:
+    'Segoe UI',
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+
     min-height:100svh;
-    overflow:hidden;
+
     position:relative;
-    display:grid;
-    place-items:center;
+
+    /*
+       IMPORTANT:
+       Mobile scrolling enabled
+    */
+    overflow-x:hidden;
+    overflow-y:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding-top:25px;
+    padding-bottom:50px;
 }
 
-/* VIDEO BACKGROUND */
+
+/* =========================================
+   VIDEO BACKGROUND
+========================================= */
+
 #bg-video{
+
     position:fixed;
+
     top:0;
     left:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
+
     z-index:-2;
+
 }
 
-/* DARK OVERLAY */
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,0.35);
+
     z-index:-1;
+
+    pointer-events:none;
+
 }
 
-/* CENTER CONTENT */
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
 .container{
+
     width:min(90vw,420px);
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
-    justify-content:center;
+
+    justify-content:flex-start;
+
     text-align:center;
+
+    position:relative;
+
+    z-index:1;
+
 }
 
-/* LOGO */
+
+/* =========================================
+   LOGO
+========================================= */
+
 .logo{
+
     width:min(160px,40vw);
+
     height:auto;
+
     margin-bottom:10px;
+
     border-radius:12px;
+
 }
 
-/* HEADING */
+
+/* =========================================
+   HEADING
+========================================= */
+
 h1{
+
     color:#fff;
+
     font-size:clamp(24px,5vw,34px);
+
     margin-bottom:20px;
-    text-shadow:0 2px 5px rgba(0,0,0,.4);
+
+    text-shadow:
+    0 2px 5px rgba(0,0,0,.4);
+
 }
 
-/* BUTTONS */
+
+/* =========================================
+   SOCIAL LINKS CONTAINER
+========================================= */
+
 .social-links{
+
     width:100%;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     gap:14px;
+
 }
+
+
+/* =========================================
+   COMMON SOCIAL BUTTON
+========================================= */
 
 .social-links a,
-.social-links .location-card{
+.location-toggle{
+
     text-decoration:none;
+
     color:white;
+
     width:100%;
-    max-width:270px;
+
+    max-width:325px;
+
     padding:14px 20px;
+
     border-radius:14px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:10px;
+
     font-size:17px;
+
     font-weight:600;
+
     transition:all .3s ease;
+
 }
+
+
+/* =========================================
+   BUTTON ICONS
+========================================= */
 
 .social-links a img,
-.social-links .location-card img{
+.location-toggle img{
+
     width:24px;
+
     height:24px;
+
     flex-shrink:0;
+
+    object-fit:contain;
+
 }
 
-/* LOCATION CARD TEXT */
-.location-card{
-    text-align:left;
-    line-height:1.35;
-    font-size:14.5px;
-    font-weight:500;
-    cursor:default;
-}
 
-.location-card strong{
-    display:block;
-    font-size:16px;
-    font-weight:700;
-    margin-bottom:2px;
-}
+/* =========================================
+   HEAD OFFICE
+========================================= */
 
-/* COLORS */
 .head-office{
+
     background:#106185;
+
 }
 
-.whatsapp-customer{
-    background:#128C7E;
+
+.head-office span{
+
+    text-align:left;
+
+    line-height:1.35;
+
 }
+
+
+.head-office strong{
+
+    display:block;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    margin-bottom:2px;
+
+}
+
+
+/* =========================================
+   STORE LOCATION BUTTON
+========================================= */
+
+.location-toggle{
+
+    background:#9d1f46;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+    font-size:17px;
+
+    font-weight:700;
+
+    color:white;
+
+}
+
+
+/* =========================================
+   STORE LOCATION CONTAINER
+========================================= */
+
+#storeLocations{
+
+    width:100%;
+
+    display:none;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+/* =========================================
+   STORE LOCATION BUTTON
+========================================= */
+
+.store-location{
+
+    width:100% !important;
+
+    max-width:325px !important;
+
+    min-height:50px;
+
+    padding:12px 15px !important;
+
+    background:#ffffff;
+
+    color:#111111 !important;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-start !important;
+
+    text-align:left;
+
+    gap:10px;
+
+    font-size:14px !important;
+
+    font-weight:600;
+
+    line-height:1.35;
+
+    box-shadow:
+    0 3px 10px rgba(0,0,0,.20);
+
+    transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+
+}
+
+
+/* =========================================
+   STORE PIN
+========================================= */
+
+.store-location .store-pin{
+
+    width:24px;
+
+    min-width:24px;
+
+    height:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:19px;
+
+}
+
+
+/* =========================================
+   STORE HOVER
+========================================= */
+
+.store-location:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.30);
+
+}
+
+
+/* =========================================
+   WEBSITE
+========================================= */
 
 .website{
+
     background:#ff3399;
+
 }
+
+
+/* =========================================
+   INSTAGRAM
+========================================= */
 
 .instagram{
+
     background:#ffc014;
+
 }
+
+
+/* =========================================
+   YOUTUBE
+========================================= */
 
 .youtube{
+
     background:#FF0000;
+
 }
 
-/* HOVER */
-.social-links a:hover{
+
+/* =========================================
+   WHATSAPP
+========================================= */
+
+.whatsapp-customer{
+
+    background:#128C7E;
+
+}
+
+
+/* =========================================
+   HOVER EFFECT
+========================================= */
+
+.social-links > a:hover,
+.location-toggle:hover{
+
     transform:scale(1.05);
+
     box-shadow:
+
     0 0 10px #ffee02,
+
     0 0 20px #ff2727,
+
     0 0 30px #0effcb,
+
     0 0 40px currentColor;
+
 }
 
-/* MOBILE */
-@media(max-width:380px){
 
-    .social-links a,
-    .social-links .location-card{
-        max-width:240px;
-        font-size:16px;
-        padding:12px 16px;
+/* =========================================
+   LOCATION OPEN ANIMATION
+========================================= */
+
+#storeLocations.open{
+
+    animation:
+    locationsOpen .25s ease;
+
+}
+
+
+@keyframes locationsOpen{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-8px);
+
     }
 
-    .location-card{
-        font-size:13.5px;
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
     }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:600px){
+
+    body{
+
+        padding-top:18px;
+
+        padding-bottom:50px;
+
+        overflow-x:hidden;
+
+        overflow-y:auto;
+
+        /*
+           iPhone / Android smooth scrolling
+        */
+
+        -webkit-overflow-scrolling:touch;
+
+    }
+
+
+    .container{
+
+        width:92vw;
+
+        max-width:400px;
+
+    }
+
 
     .logo{
+
         width:130px;
+
     }
+
+
+    h1{
+
+        font-size:27px;
+
+        margin-bottom:18px;
+
+    }
+
+
+    .social-links{
+
+        gap:11px;
+
+    }
+
+
+    .social-links a,
+    .location-toggle{
+
+        max-width:100%;
+
+        padding:13px 15px;
+
+        font-size:16px;
+
+    }
+
+
+    .store-location{
+
+        max-width:100% !important;
+
+        width:100% !important;
+
+        min-height:48px;
+
+        padding:11px 13px !important;
+
+        font-size:13.5px !important;
+
+    }
+
 }
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media(max-width:380px){
+
+    body{
+
+        padding-top:12px;
+
+        padding-bottom:40px;
+
+    }
+
+
+    .container{
+
+        width:94vw;
+
+    }
+
+
+    .logo{
+
+        width:120px;
+
+    }
+
+
+    h1{
+
+        font-size:24px;
+
+        margin-bottom:16px;
+
+    }
+
+
+    .social-links a,
+    .location-toggle{
+
+        font-size:15px;
+
+        padding:12px 13px;
+
+    }
+
+
+    .store-location{
+
+        font-size:13px !important;
+
+        padding:10px 11px !important;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<!-- VIDEO BACKGROUND -->
-<video autoplay muted loop playsinline id="bg-video">
-    <source src="https://raw.githubusercontent.com/Datamanagermbkb/embvideo/main/Sequence%2001_1.mp4" type="video/mp4">
+
+<!-- =========================================
+     VIDEO BACKGROUND
+========================================= -->
+
+<video
+    autoplay
+    muted
+    loop
+    playsinline
+    id="bg-video"
+>
+
+    <source
+        src="https://raw.githubusercontent.com/Datamanagermbkb/embvideo/main/Sequence%2001_1.mp4"
+        type="video/mp4"
+    >
+
 </video>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
 
 <div class="container">
 
-    <img
-      src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg"
-      alt="Meena Bazaar Logo"
-      class="logo">
 
-    <h1>Connect with Meena Bazaar</h1>
+    <!-- =====================================
+         LOGO
+    ====================================== -->
+
+    <img
+        src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg"
+        alt="Meena Bazaar Logo"
+        class="logo"
+    >
+
+
+    <!-- =====================================
+         HEADING
+    ====================================== -->
+
+    <h1>
+        Connect with Meena Bazaar
+    </h1>
+
+
 
     <div class="social-links">
 
-        <a href="https://maps.app.goo.gl/JViLEceJpPUNypLZ7"
-           class="location-card head-office"
-           target="_blank">
-            <img src="https://img.icons8.com/?size=256w&id=YFY0zG9WOavq&format=png" alt="">
+
+        <!-- =====================================
+             HEAD OFFICE
+        ====================================== -->
+
+        <a
+            href="https://maps.app.goo.gl/JViLEceJpPUNypLZ7"
+            class="head-office"
+            target="_blank"
+        >
+
+            <img
+                src="https://img.icons8.com/?size=256w&id=YFY0zG9WOavq&format=png"
+                alt=""
+            >
+
             <span>
-                <strong>Visit our NEW FLAGSHIP STORE &amp; CORPORATE HEAD OFFICE -  </strong>
+
+                <strong>
+                    Visit our NEW FLAGSHIP STORE &
+                    CORPORATE HEAD OFFICE -
+                </strong>
+
                 MOULSARI AVENUE
+
             </span>
+
         </a>
 
-        <a href="https://meenabazaar.com/"
-           class="website"
-           target="_blank">
-            <img src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg" alt="">
+
+
+        <!-- =====================================
+             STORE LOCATION TOGGLE BUTTON
+        ====================================== -->
+
+        <button
+            type="button"
+            id="locationToggle"
+            class="location-toggle"
+        >
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/684/684908.png"
+                alt=""
+            >
+
+            <span id="locationToggleText">
+                STORE LOCATION
+            </span>
+
+        </button>
+
+
+
+        <!-- =====================================
+             ALL STORE LOCATIONS
+
+             DEFAULT = HIDDEN
+        ====================================== -->
+
+        <div
+            id="storeLocations"
+        >
+
+
+            <!-- 01 KAROL BAGH -->
+
+            <a
+                href="https://maps.app.goo.gl/sppTruArBQHbdqQb6"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    KAROL BAGH
+                </span>
+
+            </a>
+
+
+
+            <!-- 02 KAMLA NAGAR -->
+
+            <a
+                href="https://maps.app.goo.gl/ESDS1ks4Vu7ZY9ur8"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    KAMLA NAGAR
+                </span>
+
+            </a>
+
+
+
+            <!-- 03 CROWN PLAZA FARIDABAD -->
+
+            <a
+                href="https://maps.app.goo.gl/71vWQB6jjSKtRnhd8"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    CROWN PLAZA FARIDABAD
+                </span>
+
+            </a>
+
+
+
+            <!-- 04 EAST DELHI MALL -->
+
+            <a
+                href="https://maps.app.goo.gl/xCGPFwRgJ3SzgHLG6"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    EAST DELHI MALL
+                </span>
+
+            </a>
+
+
+
+            <!-- 05 GREAT INDIA PLACE -->
+
+            <a
+                href="https://maps.app.goo.gl/DJTbH5g2fWXV49yY7"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    GREAT INDIA PLACE
+                </span>
+
+            </a>
+
+
+
+            <!-- 06 MALL OF INDIA -->
+
+            <a
+                href="https://maps.app.goo.gl/rG7soXXA1KbudXJfA"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    MALL OF INDIA
+                </span>
+
+            </a>
+
+
+
+            <!-- 07 AMBIENCE MALL GURUGRAM -->
+
+            <a
+                href="https://maps.app.goo.gl/yTBWo5CJR1iVwjiR9"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    AMBIENCE MALL, GURUGRAM
+                </span>
+
+            </a>
+
+
+
+            <!-- 08 GAUR CITY MALL -->
+
+            <a
+                href="https://maps.app.goo.gl/yTuBJBbCc6Ys4VRZ8"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    GAUR CITY MALL
+                </span>
+
+            </a>
+
+
+
+            <!-- 09 CENTRIO UNISON MALL -->
+
+            <a
+                href="https://maps.app.goo.gl/ATTDZkqhrYRUR3m9A"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    CENTRIO UNISON MALL,
+                    DEHRADUN
+                </span>
+
+            </a>
+
+
+
+            <!-- 10 DOWNTOWN MALL -->
+
+            <a
+                href="https://maps.app.goo.gl/F5n1CTZjgLcSj6A8A"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    DOWNTOWN MALL,
+                    PATHANKOT
+                </span>
+
+            </a>
+
+
+
+            <!-- 11 PACIFIC MALL JASOLA -->
+
+            <a
+                href="https://maps.app.goo.gl/KfsNtXDcTfKsaEwA7"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    PACIFIC MALL, JASOLA
+                </span>
+
+            </a>
+
+
+
+            <!-- 12 LULU MALL -->
+
+            <a
+                href="https://maps.app.goo.gl/KbBGAtZSDw6dt1Ti8"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    LULU MALL, LUCKNOW
+                </span>
+
+            </a>
+
+
+
+            <!-- 13 PALLADIUM MALL -->
+
+            <a
+                href="https://maps.app.goo.gl/dzPxP9oUHvnHx3hH9"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    PALLADIUM MALL,
+                    AHMEDABAD
+                </span>
+
+            </a>
+
+
+
+            <!-- 14 FORUM SOUTH BANGALORE -->
+
+            <a
+                href="https://maps.app.goo.gl/7v8Tz8MowEpQKX9B7"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    FORUM SOUTH BANGALORE
+                </span>
+
+            </a>
+
+
+
+            <!-- 15 MOHALI -->
+
+            <a
+                href="https://maps.app.goo.gl/XG2yVvYRDruBXdxn6"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    CP 67 SF_12,
+                    MOHALI
+                </span>
+
+            </a>
+
+
+
+            <!-- 16 MALL OF FARIDABAD -->
+
+            <a
+                href="https://maps.app.goo.gl/HkLzVoMrHRCgni3R9"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    THE MALL OF FARIDABAD
+                </span>
+
+            </a>
+
+
+
+            <!-- 17 MALL OF RANCHI -->
+
+            <a
+                href="https://maps.app.goo.gl/vAQMxMQmoZ5G5JJJ9"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    MALL OF RANCHI
+                </span>
+
+            </a>
+
+
+
+            <!-- 18 MALL OF AVADH -->
+
+            <a
+                href="https://maps.app.goo.gl/ADGcc2AU9MMfCStX8"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    MALL OF AVADH,
+                    AYODHYA
+                </span>
+
+            </a>
+
+
+
+            <!-- 19 GAUTAM NAGAR -->
+
+            <a
+                href="https://maps.app.goo.gl/Jn99C4tRoMJ6fALp9"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    GAUTAM NAGAR,
+                    BHUBANESWAR
+                </span>
+
+            </a>
+
+
+
+            <!-- 20 ICON PLAZA -->
+
+            <a
+                href="https://maps.app.goo.gl/A3JdufYpzTgBD6pZ8"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    ICON PLAZA MALL,
+                    MUZAFFARPUR
+                </span>
+
+            </a>
+
+
+
+            <!-- 21 M5 ELECTRONIC CITY -->
+
+            <a
+                href="https://share.google/k5Ehzxhwqpc7xhVyg"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    M5 ELECTRONIC CITY MALL,
+                    BENGALURU
+                </span>
+
+            </a>
+
+
+
+            <!-- 22 CENTRAL MARKET NOIDA -->
+
+            <a
+                href="https://share.google/o5s0NRQuv5dSaXvoJ"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    CENTRAL MARKET 120,
+                    NOIDA
+                </span>
+
+            </a>
+
+
+
+            <!-- 23 ZORA THE MALL -->
+
+            <a
+                href="https://share.google/Kuf3IOpn6VVoQUJBL"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    ZORA THE MALL,
+                    RAIPUR
+                </span>
+
+            </a>
+
+
+
+            <!-- 24 UNITY ONE ELEGANTE -->
+
+            <a
+                href="https://share.google/fH5XVhnGD3B9sk1LM"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    UNITY ONE ELEGANTE,
+                    PITAMPURA
+                </span>
+
+            </a>
+
+
+
+            <!-- 25 MOULSARI AVENUE -->
+
+            <a
+                href="https://maps.app.goo.gl/JViLEceJpPUNypLZ7"
+                class="store-location"
+                target="_blank"
+            >
+
+                <span class="store-pin">
+                    📍
+                </span>
+
+                <span>
+                    MOULSARI AVENUE,
+                    GURUGRAM
+                </span>
+
+            </a>
+
+
+        </div>
+
+
+
+        <!-- =====================================
+             WEBSITE
+        ====================================== -->
+
+        <a
+            href="https://meenabazaar.com/"
+            class="website"
+            target="_blank"
+        >
+
+            <img
+                src="https://www.amanoramall.com/assets/images/brand/wr3jvWWCeYiL8xAwYx3XfJIG4gstAY.jpg"
+                alt=""
+            >
+
             Website
+
         </a>
 
-        <a href="https://www.instagram.com/meenabazaar/"
-           class="instagram"
-           target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="">
+
+
+        <!-- =====================================
+             INSTAGRAM
+        ====================================== -->
+
+        <a
+            href="https://www.instagram.com/meenabazaar/"
+            class="instagram"
+            target="_blank"
+        >
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                alt=""
+            >
+
             Instagram
+
         </a>
 
-        <a href="https://www.youtube.com/channel/UCxuqspu5N8CZThWFc8xa9ig"
-           class="youtube"
-           target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="">
+
+
+        <!-- =====================================
+             YOUTUBE
+        ====================================== -->
+
+        <a
+            href="https://www.youtube.com/channel/UCxuqspu5N8CZThWFc8xa9ig"
+            class="youtube"
+            target="_blank"
+        >
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"
+                alt=""
+            >
+
             YouTube
+
         </a>
 
-        <a href="https://api.whatsapp.com/send?phone=917303888641&text=Hi+I+have+a+query.+Can+you+help%3F"
-           class="whatsapp-customer"
-           target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="">
+
+
+        <!-- =====================================
+             WHATSAPP
+        ====================================== -->
+
+        <a
+            href="https://api.whatsapp.com/send?phone=917303888641&text=Hi+I+have+a+query.+Can+you+help%3F"
+            class="whatsapp-customer"
+            target="_blank"
+        >
+
+            <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                alt=""
+            >
+
             WhatsApp - Customer Care
+
         </a>
+
 
     </div>
 
 </div>
 
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const locationButton =
+            document.getElementById(
+                "locationToggle"
+            );
+
+
+        const locationText =
+            document.getElementById(
+                "locationToggleText"
+            );
+
+
+        const locationList =
+            document.getElementById(
+                "storeLocations"
+            );
+
+
+        /*
+        ========================================
+        DEFAULT STATE
+        ========================================
+        */
+
+        let locationsVisible = false;
+
+
+        /*
+        ========================================
+        STORE LOCATION CLICK
+        ========================================
+        */
+
+        locationButton.addEventListener(
+            "click",
+            function(){
+
+                /*
+                ================================
+                OPEN LOCATIONS
+                ================================
+                */
+
+                if(
+                    locationsVisible === false
+                ){
+
+                    locationsVisible = true;
+
+
+                    locationList.style.display =
+                        "flex";
+
+
+                    locationList.classList.add(
+                        "open"
+                    );
+
+
+                    locationText.textContent =
+                        "HIDE LOCATION";
+
+
+                    /*
+                    Scroll slightly so that
+                    first location becomes visible
+                    on mobile.
+                    */
+
+                    setTimeout(
+                        function(){
+
+                            locationButton.scrollIntoView({
+                                behavior:"smooth",
+                                block:"start"
+                            });
+
+                        },
+                        100
+                    );
+
+                }
+
+
+                /*
+                ================================
+                CLOSE LOCATIONS
+                ================================
+                */
+
+                else{
+
+                    locationsVisible = false;
+
+
+                    locationList.style.display =
+                        "none";
+
+
+                    locationList.classList.remove(
+                        "open"
+                    );
+
+
+                    locationText.textContent =
+                        "STORE LOCATION";
+
+
+                    /*
+                    Bring user back to
+                    STORE LOCATION button.
+                    */
+
+                    locationButton.scrollIntoView({
+                        behavior:"smooth",
+                        block:"center"
+                    });
+
+                }
+
+            }
+        );
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
